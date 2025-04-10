@@ -25,7 +25,7 @@ df['reviews_amount'] = df['reviews_amount'].fillna('(0)')
 # Garantir que estão como strings antes de usar .str
 df['old_money'] = df['old_money'].astype(str).str.replace('.', '', regex=False)
 df['new_money'] = df['new_money'].astype(str).str.replace('.', '', regex=False)
-df['reviews_amount'] = df['reviews_amount'].astype(str).str.replace('[\(\)]', '', regex=True)
+df['reviews_amount'] = df['reviews_amount'].astype(str).str.replace(r'[\(\)]', '', regex=True)
 
 # Converter para números
 df['old_money'] = df['old_money'].astype(float)
