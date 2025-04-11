@@ -13,7 +13,6 @@ pd.options.display.max_columns = None
 df['_source'] = "https://lista.mercadolivre.com.br/notebook"
 
 # Adicionar a coluna _data_coleta com a data e hora atuais
-
 df['_datetime'] = datetime.now()
 
 # Tratar nulos
@@ -43,7 +42,7 @@ df = df[
 # Remover as colunas antigas de preços
 
 # Conectar ao banco de dados SQLite (ou criar um novo)
-conn = sqlite3.connect('data/mercadolivre.db')
+conn = sqlite3.connect('data/mercadolivre.db', timeout=10)
 
 # Salvar o DataFrame no banco de dados SQLite
 df.to_sql('notebook', conn, if_exists='replace', index=False)
